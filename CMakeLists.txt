@@ -26,8 +26,12 @@ include(${CMAKE_SYSTEM_NAME} OPTIONAL)
 
 # Source paths
 add_subdirectory (soes)
-add_subdirectory (${SOES_DEMO})
 
+if(SOES_DEMO)
+  add_subdirectory (${SOES_DEMO})
+  else()
+  message(STATUS "SOES_DEMO is not defined, skipping add_subdirectory")
+endif()
 
 message (STATUS "Building for ${CMAKE_SYSTEM_NAME}")
 
